@@ -2,9 +2,14 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>マイページ</title>
     <style>
     body {
+        /* 画面の文字を長押しして選択されないようにする */
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation; /* 連打によるズームを防止 */
         
         /* 背景色を薄いグレーに設定 */
         background-color: #f0f2f5;
@@ -64,6 +69,7 @@
     btn.addEventListener('click', () => {
         // bodyに 'dark-mode' というクラスをつけたり消したりする
         body.classList.toggle('dark-mode');
+        
 
         // ボタンの文字を切り替える
         if (body.classList.contains('dark-mode')) {
