@@ -5,6 +5,7 @@
     <title>マイページ</title>
     <style>
     body {
+        
         /* 背景色を薄いグレーに設定 */
         background-color: #f0f2f5;
         
@@ -28,10 +29,48 @@
         /* 中央寄せ */
         text-align: center;
     }
+    
+    /* ダークモード用の色設定 */
+    body.dark-mode {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+
+    body.dark-mode .container {
+        background-color: #333;
+        color: #fff;
+    }
+
+    /* ボタンの見た目を少し整える */
+    #mode-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
     </style>
 </head>
 <body>
     <h1>こんにちは！</h1>
+    <button id="mode-btn">ダークモードにする</button>
     <p>GitHub Codespacesで作成した最初のページです。</p>
 </body>
+<script>
+    // 1. 使う要素を取得する
+    const btn = document.getElementById('mode-btn');
+    const body = document.body;
+
+    // 2. ボタンがクリックされた時の動きを決める
+    btn.addEventListener('click', () => {
+        // bodyに 'dark-mode' というクラスをつけたり消したりする
+        body.classList.toggle('dark-mode');
+
+        // ボタンの文字を切り替える
+        if (body.classList.contains('dark-mode')) {
+            btn.textContent = 'ライトモードにする';
+        } else {
+            btn.textContent = 'ダークモードにする';
+        }
+    });
+</script>
 </html>
